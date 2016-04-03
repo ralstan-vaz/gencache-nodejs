@@ -5,30 +5,39 @@ Generic caching utlity for node js
 The idea behind is to be able to switch between caching databases with ease
 
 
-###To Connect to any DataBase
+###To connect to any database
 
-#### Connect to Couch base
+#### Connect to CouchBase
 ```
-  var cache = require('getsetkey')('couchbase', 'couchbase://192.168.99.100');
+  var cache = require('./')('couchbase', {
+    url: 'couchbase://192.168.99.100',
+    bucket:'beer-sample'
+  });
 ```
+If bucket is not specified it will choose `default` as the bucketname
 
 #### Connect to Redis
 ```
-  var cache = require('getsetkey')('redis', '//192.168.99.100');
+  var cache = require('./')('redis', { url:'//192.168.99.100'});
+```
+
+#### JavaScript objects as cache
+```
+  var cache = require('getsetkey')('object'); 
+  //OR
+  var cache = require('getsetkey')(); 
 ```
 
 ###Currently Supported Db's
-- redis
-- couchbase
-- javascript objects
+- Redis
+- CouchBase
+- JavaScript objects 
 
 
 ### To set a value
 
 ```
-  cache.set({
-    key: "key1",
-    value: "value1",
+  cache.set("key2", "value2", {
     ttl: 10
   }, (err, ok) => {
     if (err) {

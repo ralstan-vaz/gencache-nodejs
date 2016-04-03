@@ -1,16 +1,11 @@
 'use strict'
 
 function Obj(url) {
-  this.connect(url)
   this.cacheObj = {};
 }
 
-Obj.prototype.connect = function(url) {
-
-};
-
-Obj.prototype.set = function(params, callback) {
-  this.cacheObj[params.key] = params.value;
+Obj.prototype.set = function(key, value, options, callback) {
+  this.cacheObj[key] = value;
   return callback(null, "OK");
 };
 

@@ -2,22 +2,22 @@
 
 var redis = require('redis');
 
-function Redis(url) {
-  this.connect(url)
+function Redis(config) {
+  this.connect(config)
 }
 
-Redis.prototype.connect = function(url) {
-  this.client = redis.createClient(url);
+Redis.prototype.connect = function(config) {
+  this.client = redis.createClient(config.url);
 };
 
-Redis.prototype.set = function(params, callback) {
-  this.client.set(params.key, params.value, (err, ok) => {
+Redis.prototype.set = function(key, value, options, callback) {
+  this.client.set(key, value, (err, ok) => {
     if (err) {
       callback(err);
       return;
     }
 
-    params.hasOwnProperty("ttl") ? this.client.expire(params.key, params.ttl): 0;
+    options.hasOwnProperty("ttl") ? this.client.expire(options.key, params.ttl): 0;
     return callback(null, ok);
   });
 };

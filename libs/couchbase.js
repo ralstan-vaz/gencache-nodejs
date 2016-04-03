@@ -3,20 +3,21 @@
 var couchbase = require('couchbase');
 var moment = require('moment');
 
-function Couchbase(url) {
-  this.connect(url)
+function Couchbase(config) {
+  this.connect(config)
 }
 
-Couchbase.prototype.connect = function(url) {
-  var Cluster = new couchbase.Cluster(url);
-  this.bucket = Cluster.openBucket('default');
+Couchbase.prototype.connect = function(config) {
+  var Cluster = new couchbase.Cluster(config.url);
+  config.bucket = config.hasOwnProperty("bucket") ? config.bucket : 'default';
+  this.bucket = Cluster.openBucket(config.bucket);
 };
 
-Couchbase.prototype.set = function(params, callback) {
+Couchbase.prototype.set = function(key, value, options, callback) {
 
-  var ttl = params.hasOwnProperty("ttl") ? moment().add(params.ttl, 'seconds').unix() : 0;
-  this.bucket.upsert(params.key, {
-    "value": params.value
+  var ttl = options.hasOwnProperty("ttl") ? moment().add(options.ttl, 'seconds').unix() : 0;
+  this.bucket.upsert(key, {
+    "value": value
   }, {
     "expiry": parseInt(ttl)
   }, (err, ok) => {

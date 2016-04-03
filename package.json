@@ -1,5 +1,5 @@
 {
-  "name": "gencache",
+  "name": "getsetkey",
   "version": "0.0.1",
   "description": "Generic cache for node js",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ralstan-vaz/gencache-nodejs.git"
+    "url": "git+https://github.com/ralstan-vaz/getset-nodejs.git"
   },
   "keywords": [
     "cache",
@@ -21,9 +21,9 @@
   "author": "Ralstan Vaz",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ralstan-vaz/gencache-nodejs/issues"
+    "url": "https://github.com/ralstan-vaz/getset-nodejs/issues"
   },
-  "homepage": "https://github.com/ralstan-vaz/gencache-nodejs#readme",
+  "homepage": "https://github.com/ralstan-vaz/getset-nodejs#readme",
   "dependencies": {
     "moment": "^2.12.0",
     "redis": "^2.5.3"

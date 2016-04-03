@@ -1,4 +1,4 @@
-# GetSet
+# GetSetKey
 
 Generic caching utlity for node js
 
@@ -9,12 +9,12 @@ The idea behind is to be able to switch between caching databases with ease
 
 #### Connect to Couch base
 ```
-  var cache = require('./index.js')('couchbase', 'couchbase://192.168.99.100');
+  var cache = require('getsetkey')('couchbase', 'couchbase://192.168.99.100');
 ```
 
 #### Connect to Redis
 ```
-  var cache = require('./index.js')('redis', '//192.168.99.100');
+  var cache = require('getsetkey')('redis', '//192.168.99.100');
 ```
 
 ###Currently Supported Db's

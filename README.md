@@ -1,4 +1,4 @@
-# GetSetKey
+# nodejs-cache
 
 Generic caching utlity for node js
 
@@ -23,9 +23,9 @@ If bucket is not specified it will choose `default` as the bucketname
 
 #### JavaScript objects as cache
 ```
-  var cache = require('getsetkey')('object'); 
+  var cache = require('nodejs-cache')('object'); 
   //OR
-  var cache = require('getsetkey')(); 
+  var cache = require('nodejs-cache')(); 
 ```
 
 ###Currently Supported Db's

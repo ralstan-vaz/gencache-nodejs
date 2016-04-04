@@ -9,7 +9,7 @@ The idea behind is to be able to switch between caching databases with ease
 
 #### Connect to CouchBase
 ```
-  var cache = require('./')('couchbase', {
+  var cache = require('nodejs-cache')('couchbase', {
     url: 'couchbase://192.168.99.100',
     bucket:'beer-sample'
   });
@@ -18,7 +18,7 @@ If bucket is not specified it will choose `default` as the bucketname
 
 #### Connect to Redis
 ```
-  var cache = require('./')('redis', { url:'//192.168.99.100'});
+  var cache = require('nodejs-cache')('redis', { url:'//192.168.99.100'});
 ```
 
 #### JavaScript objects as cache

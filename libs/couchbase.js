@@ -26,7 +26,7 @@ Couchbase.prototype.set = function(key, value, options, callback) {
       return;
     }
 
-    return callback(null, ok);
+    return callback(null, "OK");
   });
 };
 
@@ -36,7 +36,7 @@ Couchbase.prototype.get = function(key, callback) {
       callback(err);
       return;
     }
-    return callback(null, value.value);
+    return callback(null, value.value.value);
   });
 };
 
@@ -46,7 +46,7 @@ Couchbase.prototype.del = function(key, callback) {
       callback(err);
       return;
     }
-    return callback(null, value);
+    return callback(null, "OK");
   });
 };
 

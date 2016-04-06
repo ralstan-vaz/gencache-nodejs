@@ -1,10 +1,10 @@
 {
   "name": "nodejs-cache",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Generic cache for node js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,8 @@
   },
   "homepage": "https://github.com/ralstan-vaz/nodejs-cache#readme",
   "dependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
     "moment": "^2.12.0",
     "redis": "^2.5.3"
   }

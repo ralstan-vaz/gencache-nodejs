@@ -16,8 +16,8 @@ Redis.prototype.set = function(key, value, options, callback) {
       callback(err);
       return;
     }
-
-    options.hasOwnProperty("ttl") ? this.client.expire(options.key, params.ttl): 0;
+    
+    options.hasOwnProperty("ttl") ? this.client.expire(key, options.ttl): 0;
     return callback(null, ok);
   });
 };

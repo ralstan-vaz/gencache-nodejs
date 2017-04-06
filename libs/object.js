@@ -1,22 +1,30 @@
 'use strict'
 
 function Obj(url) {
-  this.cacheObj = {};
+	this.cacheObj = {};
 }
 
 Obj.prototype.set = function(key, value, options, callback) {
-  this.cacheObj[key] = value;
-  return callback(null, "OK");
+
+	this.cacheObj[key] = value;
+
+	// Set TTL
+	if (options.ttl) {
+		setTimeout(() => {
+			delete this.cacheObj[key];
+		}, options.ttl)
+	}
+	return callback(null, "OK");
 };
 
 Obj.prototype.get = function(key, callback) {
-  var value = this.cacheObj[key];
-  return callback(null, value);
+	var value = this.cacheObj[key];
+	return callback(null, value);
 };
 
 Obj.prototype.del = function(key, callback) {
-  delete this.cacheObj[key];
-  return callback(null, "OK");
+	delete this.cacheObj[key];
+	return callback(null, "OK");
 };
 
 
